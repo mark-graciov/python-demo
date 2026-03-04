@@ -42,7 +42,7 @@ Handles HTTP requests and responses. It defines the routing logic and maps HTTP 
 ### `app/core/`
 Centralized configuration and cross-cutting concerns.
 - **`config.py`**: Uses `pydantic-settings` to manage environment variables (`.env`).
-- **`security.py`**: Handles password hashing using `passlib` (bcrypt) to ensure security.
+- **`security.py`**: Handles password hashing using `bcrypt` directly to ensure security.
 
 ### `app/db/`
 Encapsulates all database-related setup.
@@ -123,4 +123,4 @@ Tests use a separate temporary SQLite database (`test_temp.db`) to ensure isolat
 - **Dependency Injection**: Database sessions are injected into endpoints, making them easy to mock during testing.
 - **Separation of Concerns**: API routes don't know about database details, and models don't know about HTTP.
 - **Input Validation**: Strong typing ensures that only valid data reaches the service layer.
-- **Security**: Never stores plain-text passwords; uses bcrypt for hashing.
+- **Security**: Never stores plain-text passwords; uses `bcrypt` directly for hashing.
